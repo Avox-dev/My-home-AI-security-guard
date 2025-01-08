@@ -25,6 +25,9 @@ class PoseLandmarkerModule:
         self.last_detected_time = 0  # 택배기사 감지 시간을 기록할 변수 추가
         self.detect_cooldown = 10  # 감지 후 10초 동안 비활성화
         self.email_info = email_info  # 이메일 정보 추가
+        self.drawing_region = False  # 영역 드래그 중인지 확인하는 플래그
+        self.start_point = None      # 드래그 시작점
+        self.region = region
 
     def initialize_pose_landmarker(self):
         BaseOptions = mp.tasks.BaseOptions
@@ -55,6 +58,20 @@ class PoseLandmarkerModule:
                 drawing_styles.get_default_pose_landmarks_style()
             )
         return annotated_image
+    def on_mouse_event(self, event, x, y, flags, param):
+        if event == cv2.EVENT_LBUTTONDOWN:  # 마우스 왼쪽 버튼 누름
+            self.drawing_region = True
+            self.start_point = (x, y)
+        
+        elif event == cv2.EVENT_MOUSEMOVE and self.drawing_region:  # 마우스 이동
+            # 드래그 중에 영역 실시간으로 업데이트
+            self.region['x_min'] = min(self.start_point[0], x)
+            self.region['x_max'] = max(self.start_point[0], x)
+            self.region['y_min'] = min(self.start_point[1], y)
+            self.region['y_max'] = max(self.start_point[1], y)
+
+        elif event == cv2.EVENT_LBUTTONUP:  # 마우스 왼쪽 버튼 떼기
+            self.drawing_region = False
 
     def check_doorbell_press(self, pose_landmarks, frame, min_duration=1.0):
         current_time = time.time()
@@ -93,11 +110,12 @@ class PoseLandmarkerModule:
                 if self.parcel_count != doorbell_parcel_count:
                     print('택배기사입니다.')
                     self.parcel_count = doorbell_parcel_count
-                    self.last_detected_time = current_time
+                    
                     # 택배기사를 감지하면 이메일 전송
                     self.send_email(captured_image)
                 elif self.parcel_count == doorbell_parcel_count:
                     print('택배기사가 아닙니다.')
+                self.last_detected_time = current_time
                 return captured_image
         else:
             self.timer.pop("press", None)
@@ -114,6 +132,10 @@ class PoseLandmarkerModule:
             return None
 
         captured_images = []  # 캡처된 이미지들을 저장할 리스트
+
+        # OpenCV 윈도우에 마우스 콜백 연결
+        cv2.namedWindow('Pose Detection')
+        cv2.setMouseCallback('Pose Detection', self.on_mouse_event)
 
         with self.landmarker:
             while video_capture.isOpened():
@@ -138,16 +160,17 @@ class PoseLandmarkerModule:
                     captured_image = self.check_doorbell_press(landmarks, frame, min_duration=1.0)
                     if captured_image is not None:
                         captured_images.append(captured_image)
-                
+
                 annotated_frame = self.draw_landmarks_on_image(frame_rgb, pose_landmarker_result)
 
+                # 드래그로 업데이트된 영역 그리기
                 cv2.rectangle(annotated_frame,
                               (self.region['x_min'], self.region['y_min']),
                               (self.region['x_max'], self.region['y_max']),
                               (0, 255, 0), 2)
                 cv2.imshow('Pose Detection', cv2.cvtColor(annotated_frame, cv2.COLOR_RGB2BGR))
 
-                if cv2.waitKey(5) & 0xFF == 27:
+                if cv2.waitKey(5) & 0xFF == 27:  # ESC 키로 종료
                     break
 
         video_capture.release()
