@@ -237,7 +237,7 @@ if __name__ == "__main__":
         'smtp_server': 'smtp.gmail.com',
         'smtp_port': 587,
         'username': 'gnfmcm333@gmail.com',
-        'password': 'bhef qdax umfu bnbi',
+        'password': '',
         'to_email': 'gnfmcm333@gmail.com'
     }
 
