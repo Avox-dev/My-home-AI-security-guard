@@ -73,7 +73,7 @@ class PoseLandmarkerModule:
         elif event == cv2.EVENT_LBUTTONUP:  # 마우스 왼쪽 버튼 떼기
             self.drawing_region = False
 
-    def check_doorbell_press(self, pose_landmarks, frame, min_duration=1.0):
+    def check_doorbell_press(self, pose_landmarks, frame, min_duration=0.1):
         current_time = time.time()
         if current_time - self.last_detected_time < self.detect_cooldown:
             remaining_time = self.detect_cooldown - (current_time - self.last_detected_time)
@@ -112,9 +112,11 @@ class PoseLandmarkerModule:
                     self.parcel_count = doorbell_parcel_count
                     
                     # 택배기사를 감지하면 이메일 전송
-                    self.send_email(captured_image)
+                    self.send_email(captured_image,'택배기사 감지 알림', '택배기사가 감지되었습니다. 아래 사진을 확인하세요.')
                 elif self.parcel_count == doorbell_parcel_count:
                     print('택배기사가 아닙니다.')
+                    # 이상자를 감지하면 이메일 전송
+                    self.send_email(captured_image,'이상자 감지 알림', '이상자가 감지되었습니다. 아래 사진을 확인하세요.')
                 self.last_detected_time = current_time
                 return captured_image
         else:
@@ -178,7 +180,7 @@ class PoseLandmarkerModule:
 
         return captured_images
 
-    def send_email(self, image_array):
+    def send_email(self, image_array, subject, body):
         # 이미지 데이터를 임시 파일로 저장
         image_path = 'temp_image.jpg'
         cv2.imwrite(image_path, cv2.cvtColor(image_array, cv2.COLOR_RGB2BGR))  # 임시 파일로 저장
@@ -194,9 +196,9 @@ class PoseLandmarkerModule:
         msg = MIMEMultipart()
         msg['From'] = username
         msg['To'] = to_email
-        msg['Subject'] = '택배기사 감지 알림'
+        msg['Subject'] = subject
 
-        body = '택배기사가 감지되었습니다. 아래 사진을 확인하세요.'
+        # 본문 추가
         msg.attach(MIMEText(body, 'plain'))
 
         # 이미지 첨부
@@ -222,7 +224,7 @@ class PoseLandmarkerModule:
 # 실행
 if __name__ == "__main__":
     model_path = 'pose_landmarker_full.task'
-    video_path = 'testvideo.mp4'
+    video_path = 'C021_A17_SY16_P07_S12_02NBS.mp4'
 
     region = {
         'x_min': 350,
@@ -234,9 +236,9 @@ if __name__ == "__main__":
     email_info = {  # 이메일 정보 예시
         'smtp_server': 'smtp.gmail.com',
         'smtp_port': 587,
-        'username': 'gnfmcm333@naver.com',
-        'password': 'lmin ddpo vxgc hquu',
-        'to_email': 'gnfmcm333@naver.com'
+        'username': 'gnfmcm333@gmail.com',
+        'password': 'bhef qdax umfu bnbi',
+        'to_email': 'gnfmcm333@gmail.com'
     }
 
     pose_landmarker = PoseLandmarkerModule(model_path, video_path, region, email_info)
