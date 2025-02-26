@@ -1,30 +1,19 @@
-비밀번호를 직접 코드에 하드코딩하는 것은 매우 위험합니다.  이메일 정보는 환경 변수 또는 암호화된 설정 파일을 사용하여 관리해야 합니다.  Streamlit Secrets 또는 다른 비밀 관리 솔루션을 활용하는 것을 강력히 권장합니다.
+비밀번호를  `st.sidebar.text_input`으로  직접 입력받는 부분이 가장 큰 취약점입니다.  사용자의 비밀번호가  plain text로  코드에 노출되고,  서버 로그에도 기록될 수 있습니다.  이를 해결하려면 비밀번호를  입력받지 않고,  환경변수 또는  암호화된 설정 파일에서  비밀번호를  읽어와야 합니다.
 
 
-아래는  `email_info`  딕셔너리를  환경변수에서 읽어오는 방식으로 수정한 코드의 핵심 부분입니다.  전체 코드를 수정하려면  `email_info`  딕셔너리 생성 부분을 이 코드로 대체하고,  `PoseLandmarkerModule`  클래스가 환경변수를 사용할 수 있도록 수정해야 합니다.
+다른 취약점으로는  `temp_video_path`에  업로드된 비디오 파일을  임시로 저장하는 부분입니다.  파일 업로드 및 저장 방식을  안전하게 관리해야  비디오 파일의  악용 가능성을  줄일 수 있습니다.  Streamlit 자체 기능이나  안전한 파일 저장 시스템을  활용하는 것이 좋습니다.
 
-```python
-import os
 
-email_info = {
-    "smtp_server": os.environ.get("SMTP_SERVER", "smtp.gmail.com"),
-    "smtp_port": int(os.environ.get("SMTP_PORT", 587)),
-    "username": os.environ.get("EMAIL_USERNAME"),
-    "password": os.environ.get("EMAIL_PASSWORD"),
-    "to_email": os.environ.get("EMAIL_TO")
-}
+구체적인 대체 코드는 제공할 수 없지만,  취약점 해결 방향을 제시합니다.
 
-# ... (나머지 코드) ...
-```
 
-이 코드는 환경 변수에서 이메일 정보를 읽어옵니다.  환경 변수가 설정되지 않으면 기본값을 사용합니다.  실행 전에  `SMTP_SERVER`, `SMTP_PORT`, `EMAIL_USERNAME`, `EMAIL_PASSWORD`, `EMAIL_TO`  환경 변수를 시스템 환경 변수 또는 Streamlit Secrets를 통해 설정해야 합니다.  예를 들어,  Linux/macOS  에서는 다음과 같이 설정할 수 있습니다.
+1. **비밀번호 관리:**  `email_info`  딕셔너리에  비밀번호를  직접 저장하지 마십시오.  환경 변수(`os.environ`)를 사용하거나,  암호화된 설정 파일(예:  `.env` 파일)에서  비밀번호를  읽어오도록  코드를 수정해야 합니다.  `python-dotenv`  같은  패키지를 사용하면  `.env` 파일을  쉽게 관리할 수 있습니다.
 
-```bash
-export SMTP_SERVER="smtp.gmail.com"
-export SMTP_PORT="587"
-export EMAIL_USERNAME="your_email@gmail.com"
-export EMAIL_PASSWORD="your_password"
-export EMAIL_TO="recipient_email@example.com"
-```
 
-**중요:**  암호를 직접 명령어에 넣는 것은 매우 위험합니다.  다른 안전한 방법 (예:  secrets management tool)을 사용하십시오.  이 예시는 이해를 돕기 위한 목적으로만 제공됩니다.
+2. **파일 업로드 및 저장:**  `temp_video_path`에  비디오를  임시 저장하는 대신,  Streamlit의  메모리 내 처리 기능을 활용하거나,  안전한 임시 파일 저장소를  구현해야 합니다.  `tempfile`  모듈을  사용할 수 있지만,  파일 삭제를  명확하게 처리해야  보안상  문제가 발생하지 않습니다.  또한,  파일 유형 검증을  강화하여  악성 파일 업로드를  방지해야 합니다.
+
+
+3. **에러 처리:** 예외 처리를  강화하여  비정상적인 상황에서  오류 메시지가  안전하게  처리되도록  합니다.
+
+
+위  방법들을  구현하여  코드의  보안성을  향상시켜야 합니다.  구체적인  코드 구현은  개발 환경 및  사용하는  라이브러리에  따라  달라질 수 있습니다.  보안  전문가의  검토를 받는 것이  추천됩니다.

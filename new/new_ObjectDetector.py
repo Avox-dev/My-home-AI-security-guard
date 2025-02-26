@@ -1,8 +1,10 @@
 ```python
     try:
-        object_count = detector.show_detected_image(image_path)
-        print(f"감지된 객체 수: {object_count}")
+        object_count, annotated_image = self.detect_objects(image_path)
+        if annotated_image is not None:
+            return object_count
     except Exception as e:
-        print(f"오류 발생: {e}")
+        print(f"Error during object detection: {e}")
+        return 0
 
 ```
