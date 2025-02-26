@@ -365,3 +365,117 @@ Here is a JSON summary of the test results:
   }
 }
 ```
+以下은 테스트 결과를 JSON 형식으로 요약한 것입니다.
+
+```json
+{
+  "run_started": "2025-02-26 04:49:13.159716",
+  "test_results": "No issues identified",
+  "code_scanned": {
+    "total_lines": 196,
+    "lines_skipped": 0,
+    "issues_skipped": 0
+  },
+  "run_metrics": {
+    "issues_by_severity": {
+      "undefined": 0,
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    },
+    "issues_by_confidence": {
+      "undefined": 0,
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "files_skipped": 0
+}
+```
+```json
+{
+  "Test Results": {
+    "Issue": "B614:pytorch_load",
+    "Severity": "Medium",
+    "Confidence": "High",
+    "CWE": "CWE-502",
+    "More Info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b614_pytorch_load.html",
+    "Location": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/ObjectDetector.py:17:21"
+  },
+  "Code Scanned": {
+    "Total Lines of Code": 50,
+    "Total Lines Skipped": 0,
+    "Total Potential Issues Skipped": 0
+  },
+  "Run Metrics": {
+    "Total Issues by Severity": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 1,
+      "High": 0
+    },
+    "Total Issues by Confidence": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 1
+    }
+  },
+  "Files Skipped": 0
+}
+```
+```json
+{
+  "run_started": "2025-02-26 04:49:17.774948",
+  "test_results": {
+    "issues_identified": "No issues identified"
+  },
+  "code_scanned": {
+    "total_lines_of_code": 181,
+    "total_lines_skipped": 0,
+    "total_issues_skipped": 0
+  },
+  "run_metrics": {
+    "total_issues_by_severity": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    },
+    "total_issues_by_confidence": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    }
+  },
+  "files_skipped": 0
+}
+```
+```json
+{
+  "run_started": "2025-02-26 04:49:30.541145",
+  "test_results": "No issues identified.",
+  "code_scanned": {
+    "total_lines": 45,
+    "lines_skipped": 0,
+    "issues_skipped": 0
+  },
+  "run_metrics": {
+    "issues_by_severity": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    },
+    "issues_by_confidence": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    }
+  },
+  "files_skipped": 0
+}
+```
