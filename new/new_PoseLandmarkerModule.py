@@ -1,18 +1,28 @@
-send_email 함수의 smtp 서버 연결 부분의 보안 취약점
-
-`server.starttls()` 대신 `server.startssl()`을 사용합니다.
-
- However, since you're using Gmail's SMTP server, you should use `server.starttls()` instead of `server.startssl()`. But to make it more secure, you can use the following code:
-
 ```python
-server = smtplib.SMTP_SSL(smtp_server, smtp_port)
-```
+    def send_email(self, image_array, subject, body):
+        # 이미지 데이터를 base64로 인코딩
+        _, encoded_image = cv2.imencode('.jpg', cv2.cvtColor(image_array, cv2.COLOR_RGB2BGR))
+        encoded_string = base64.b64encode(encoded_image).decode('utf-8')
 
-또한, `server.login(username, password)`에서 비밀번호를 평문으로 전달하는 것은 보안 취약점입니다. 이를 대신하여 OAuth 2.0을 사용하여 인증할 수 있습니다.
+        # 이메일 메시지 작성 (HTML 형식 사용)
+        msg = MIMEMultipart('alternative')
+        msg['From'] = self.email_info['username']
+        msg['To'] = self.email_info['to_email']
+        msg['Subject'] = subject
 
-```python
-import base64
-auth_string = f'{username}:{password}'
-auth_string = base64.b64encode(auth_string.encode()).decode()
-server.docmd('AUTH', 'XOAUTH2 ' + auth_string)
+        text_part = MIMEText(body, 'plain')
+        html_part = MIMEText(f'<html><body><p>{body}</p><img src="data:image/jpeg;base64,{encoded_string}"></body></html>', 'html')
+        msg.attach(text_part)
+        msg.attach(html_part)
+
+        # 이메일 보내기 (smtplib 부분은 변경하지 않음)
+        try:
+            with smtplib.SMTP(self.email_info['smtp_server'], self.email_info['smtp_port']) as server:
+                server.starttls()
+                server.login(self.email_info['username'], self.email_info['password'])
+                server.sendmail(self.email_info['username'], self.email_info['to_email'], msg.as_string())
+                print("이메일이 성공적으로 전송되었습니다.")
+        except Exception as e:
+            print(f"이메일 전송 오류: {e}")
+
 ```

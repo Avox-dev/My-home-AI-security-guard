@@ -479,3 +479,130 @@ Here is a JSON summary of the test results:
   "files_skipped": 0
 }
 ```
+```json
+{
+  "runStarted": "2025-02-26T05:43:36.865539",
+  "testResults": "No issues identified.",
+  "codeScanned": {
+    "totalLinesOfCode": 196,
+    "totalLinesSkippedNosec": 0,
+    "totalPotentialIssuesSkipped": 0
+  },
+  "runMetrics": {
+    "totalIssuesBySeverity": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    },
+    "totalIssuesByConfidence": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    }
+  },
+  "filesSkipped": 0
+}
+```
+
+```json
+{
+  "run_started": "2025-02-26 05:43:41.574372",
+  "test_results": [
+    {
+      "issue": "B614:pytorch_load",
+      "severity": "Medium",
+      "confidence": "High",
+      "cwe": "CWE-502",
+      "cwe_url": "https://cwe.mitre.org/data/definitions/502.html",
+      "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b614_pytorch_load.html",
+      "location": {
+        "file": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/ObjectDetector.py",
+        "line": 17,
+        "column": 21
+      },
+      "code_snippet": [
+        "        # 모델 로드",
+        "        self.model = torch.hub.load(model_path, 'custom', path=weights_path, source='local', force_reload=True)",
+        "        self.model.eval()"
+      ]
+    }
+  ],
+  "code_scanned": {
+    "total_lines": 50,
+    "total_lines_skipped": 0,
+    "total_potential_issues_skipped": 0
+  },
+  "run_metrics": {
+    "total_issues_by_severity": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 1,
+      "High": 0
+    },
+    "total_issues_by_confidence": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 1
+    }
+  },
+  "files_skipped": 0
+}
+```
+
+```json
+{
+  "run_started": "2025-02-26T05:43:45.613383",
+  "test_results": "No issues identified.",
+  "code_scanned": {
+    "total_lines_of_code": 181,
+    "total_lines_skipped_nosec": 0,
+    "total_potential_issues_skipped": 0
+  },
+  "run_metrics": {
+    "total_issues": {
+      "undefined": 0,
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    },
+    "total_issues_by_confidence": {
+      "undefined": 0,
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "files_skipped": 0
+}
+```
+
+```json
+{
+  "run_started": "2025-02-26T05:43:53.017709",
+  "test_results": "No issues identified.",
+  "code_scanned": {
+    "total_lines_of_code": 45,
+    "total_lines_skipped_nosec": 0,
+    "total_potential_issues_skipped": 0
+  },
+  "run_metrics": {
+    "total_issues": {
+      "undefined": 0,
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    },
+    "total_issues_by_confidence": {
+      "undefined": 0,
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "files_skipped": 0
+}
+```
+
