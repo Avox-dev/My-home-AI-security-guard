@@ -1,0 +1,1 @@
+cv2.setMouseCallback("Video", lambda event, x, y, flags, param: bell_recorder.on_mouse_click(event, x, y, flags, param))

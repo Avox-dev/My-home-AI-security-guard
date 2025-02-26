@@ -1,0 +1,114 @@
+```json
+{
+  "runStarted": "2025-02-26 04:19:04.240674",
+  "testResults": {
+    "issuesIdentified": "No issues identified"
+  },
+  "codeScanned": {
+    "totalLines": 196,
+    "linesSkipped": 0,
+    "potentialIssuesSkipped": 0
+  },
+  "runMetrics": {
+    "totalIssuesBySeverity": {
+      "undefined": 0,
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    },
+    "totalIssuesByConfidence": {
+      "undefined": 0,
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "filesSkipped": 0
+}
+```
+```
+{
+  "test_results": {
+    "issue": "B614:pytorch_load",
+    "severity": "Medium",
+    "confidence": "High",
+    "CWE": "CWE-502",
+    "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b614_pytorch_load.html",
+    "location": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/ObjectDetector.py:17:21"
+  },
+  "code_scanned": {
+    "total_lines_of_code": 50,
+    "total_lines_skipped": 0,
+    "total_potential_issues_skipped": 0
+  },
+  "run_metrics": {
+    "total_issues_by_severity": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 1,
+      "High": 0
+    },
+    "total_issues_by_confidence": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 1
+    },
+    "files_skipped": 0
+  }
+}
+```
+```
+{
+  "runStarted": "2025-02-26 04:19:09.878435",
+  "testResults": {
+    "issues": "No issues identified"
+  },
+  "codeScanned": {
+    "totalLines": 181,
+    "linesSkipped": 0,
+    "issuesSkipped": 0
+  },
+  "runMetrics": {
+    "issuesBySeverity": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    },
+    "issuesByConfidence": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    }
+  },
+  "filesSkipped": 0
+}
+```
+```json
+{
+  "run_started": "2025-02-26 04:19:23.719403",
+  "test_results": "No issues identified",
+  "code_scanned": {
+    "total_lines_of_code": 45,
+    "total_lines_skipped": 0,
+    "total_potential_issues_skipped": 0
+  },
+  "run_metrics": {
+    "total_issues_by_severity": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    },
+    "total_issues_by_confidence": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    }
+  },
+  "files_skipped": 0
+}
+```
