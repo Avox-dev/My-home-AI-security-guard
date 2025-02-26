@@ -112,3 +112,256 @@
   "files_skipped": 0
 }
 ```
+```json
+{
+  "run_started": "2025-02-26 04:34:52.380973",
+  "test_results": "No issues identified",
+  "code_scanned": {
+    "total_lines": 196,
+    "lines_skipped": 0,
+    "issues_skipped": 0
+  },
+  "run_metrics": {
+    "issues_by_severity": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    },
+    "issues_by_confidence": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    }
+  },
+  "files_skipped": 0
+}
+```
+以下是測試結果的 JSON 格式總結：
+
+```json
+{
+    "run_started": "2025-02-26 04:34:54.994869",
+    "test_results": {
+        "issues": [
+            {
+                "issue": "B614:pytorch_load",
+                "severity": "Medium",
+                "confidence": "High",
+                "CWE": "CWE-502",
+                "more_info": "https://bandit.readthedocs.io/en/1.8.3/plugins/b614_pytorch_load.html",
+                "location": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/ObjectDetector.py:17:21"
+            }
+        ]
+    },
+    "code_scanned": {
+        "total_lines_of_code": 50,
+        "total_lines_skipped": 0,
+        "total_potential_issues_skipped": 0
+    },
+    "run_metrics": {
+        "total_issues_by_severity": {
+            "Undefined": 0,
+            "Low": 0,
+            "Medium": 1,
+            "High": 0
+        },
+        "total_issues_by_confidence": {
+            "Undefined": 0,
+            "Low": 0,
+            "Medium": 0,
+            "High": 1
+        }
+    },
+    "files_skipped": 0
+}
+```
+
+這個 JSON 物件包含了測試結果的詳細信息，包括測試開始時間、發現的問題、掃描代碼統計、跑程計量等。
+```json
+{
+  "run_started": "2025-02-26 04:34:57.417468",
+  "test_results": "No issues identified",
+  "code_scanned": {
+    "total_lines": 181,
+    "lines_skipped": 0,
+    "potential_issues_skipped": 0
+  },
+  "run_metrics": {
+    "total_issues": {
+      "severity": {
+        "undefined": 0,
+        "low": 0,
+        "medium": 0,
+        "high": 0
+      },
+      "confidence": {
+        "undefined": 0,
+        "low": 0,
+        "medium": 0,
+        "high": 0
+      }
+    }
+  },
+  "files_skipped": 0
+}
+```
+```json
+{
+  "테스트 결과": {
+    "이슈": "없음"
+  },
+  "코드 분석": {
+    "총 라인 수": 45,
+    "건너뛰은 라인 수 (#nosec)": 0,
+    "특정 이슈 무시 수": 0
+  },
+  "실행 메트릭스": {
+    "Severity별 이슈 수": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    },
+    "신뢰도別 이슈 수": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    }
+  },
+  "건너뛰은 파일": 0
+}
+```
+```json
+{
+  "run_started": "2025-02-26 04:35:02.233407",
+  "test_results": "No issues identified",
+  "code_scanned": {
+    "total_lines": 7,
+    "lines_skipped": 0,
+    "issues_skipped": 0
+  },
+  "run_metrics": {
+    "issues_by_severity": {
+      "undefined": 0,
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    },
+    "issues_by_confidence": {
+      "undefined": 0,
+      "low": 0,
+      "medium": 0,
+      "high": 0
+    }
+  },
+  "files_skipped": [
+    {
+      "filename": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/new/new_save_video.py",
+      "reason": "syntax error while parsing AST from file"
+    }
+  ]
+}
+```
+_here is a JSON file summarizing the test results:_
+
+```json
+{
+  "run_started": "2025-02-26 04:35:04.522531",
+  "test_results": {
+    "issues_identified": "No issues identified"
+  },
+  "code_scanned": {
+    "total_lines_of_code": 5,
+    "total_lines_skipped": 0,
+    "total_potential_issues_skipped": 0
+  },
+  "run_metrics": {
+    "total_issues_by_severity": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    },
+    "total_issues_by_confidence": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    }
+  },
+  "files_skipped": [
+    {
+      "file_path": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/new/new_ObjectDetector.py",
+      "reason": "syntax error while parsing AST from file"
+    }
+  ]
+}
+```
+```
+{
+  "scan_date": "2025-02-26 04:35:06.539928",
+  "test_results": "No issues identified",
+  "code_scanned": {
+    "total_lines": 3,
+    "lines_skipped": 0,
+    "issues_skipped": 0
+  },
+  "run_metrics": {
+    "issues_by_severity": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    },
+    "issues_by_confidence": {
+      "Undefined": 0,
+      "Low": 0,
+      "Medium": 0,
+      "High": 0
+    }
+  },
+  "files_skipped": [
+    {
+      "file_path": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/new/new_app.py",
+      "reason": "syntax error while parsing AST from file"
+    }
+  ]
+}
+```
+Here is a JSON summary of the test results:
+
+```json
+{
+  "test_results": {
+    "issues_identified": "No",
+    "code_scanned": {
+      "total_lines": 21,
+      "lines_skipped": 0,
+      "issues_skipped": 0
+    },
+    "run_metrics": {
+      "issues_by_severity": {
+        "Undefined": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      },
+      "issues_by_confidence": {
+        "Undefined": 0,
+        "Low": 0,
+        "Medium": 0,
+        "High": 0
+      }
+    },
+    "files_skipped": [
+      {
+        "file_path": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/new/new_PoseLandmarkerModule.py",
+        "reason": "syntax error while parsing AST from file"
+      }
+    ]
+  }
+}
+```

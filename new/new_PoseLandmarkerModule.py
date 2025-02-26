@@ -1,39 +1,29 @@
-초인종 누르기 동작 감지 부분에서 `is_in_region` 함수를 이용해 왼쪽 및 오른쪽万元 위치를 확인하는 코드는 다음과 같이 개선할 수 있습니다.
+리눅스에서 사용될 경우 가장 위험한 취약점은 패스워드가明文으로 노출되어 있다는 것이다. 이를 해결하기 위해 비밀번호를 환경 변수나 güvenli한 저장소에 넣는 방법이 있다. 
+
+다음과 같이 `email_info`에 비밀번호를 넣는代わりに 환경 변수를 사용할 수 있다.
+
 ```python
-def is_in_region(wrist):
-    x, y = int(wrist.x * frame_width), int(wrist.y * frame_height)
-    return (
-        self.region["x_min"] < x < self.region["x_max"]
-        and self.region["y_min"] < y < self.region["y_max"]
-    )
+import os
+
+email_info = {
+    'smtp_server': 'smtp.gmail.com',
+    'smtp_port': 587,
+    'username': 'gnfmcm333@gmail.com',
+    'password': os.environ.get('EMAIL_PASSWORD'),  # 환경 변수에서 비밀번호 얻기
+    'to_email': 'gnfmcm333@gmail.com'
+}
 ```
-또한, OpenCV의 `cv2.imshow`와 `cv2.waitKey`를 이용한 화면 표시 部分에서 Ctrl+C 예외 처리를 추가할 수 있습니다.
-```python
-try:
-    while video_capture.isOpened():
-        # ...
-        cv2.imshow('Pose Detection', cv2.cvtColor(annotated_frame, cv2.COLOR_RGB2BGR))
-        if cv2.waitKey(5) & 0xFF == 27:  # ESC 키로 종료
-            break
-except KeyboardInterrupt:
-    print("强制 종료")
+
+그뒤에, 환경 변수를 설정해야 한다. 
+
+리눅스 또는 맥에서 다음과 같이 실행하여 환경 변수를 설정할 수 있다.
+
+```bash
+export EMAIL_PASSWORD='your_password'
 ```
-이外, 이메일 전송 부분에서 `smtplib`의 `SMTP` 객체를 이용할 때, 보안 연결을 위한 `starttls` 메서드를 호출할 때 예외 처리를 추가할 수 있습니다.
-```python
-try:
-    with smtplib.SMTP(smtp_server, smtp_port) as server:
-        server.starttls()  # 보안 연결
-        server.login(username, password)
-        server.sendmail(username, to_email, msg.as_string())
-        print("이메일이 성공적으로 전송되었습니다.")
-except smtplib.SMTPException as e:
-    print(f"이메일 전송 오류: {e}")
-```
-마지막으로, 임시 파일을 삭제하는 부분에서 `os.remove` 메서드를 이용할 때 예외 처리를 추가할 수 있습니다.
-```python
-try:
-    if os.path.exists(image_path):
-        os.remove(image_path)
-except OSError as e:
-    print(f"임시 파일 삭제 오류: {e}")
+
+윈도우의 경우 다음과 같이 환경 변수를 설정할 수 있다.
+
+```bash
+set EMAIL_PASSWORD='your_password'
 ```

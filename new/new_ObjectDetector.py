@@ -1,8 +1,6 @@
-pathlib.PosixPath = pathlib.WindowsPath를 통해 posXixPath를 WindowsPath로 대체하는 코드는 포팅이 안되는 코드입니다. 따라서 이 코드는 사용하면 안됩니다. 
+`temp = pathlib.PosixPath; pathlib.PosixPath = pathlib.WindowsPath` 는 안정적이지 않은 코드로, 경로를 설정하는 방법으로 아래의 방법 대신합니다.
 
-대체 코드는 import pathlib와 pathlib.PurePath혹은 pathlib.Path를 사용하는것입니다. 
-
-대체되는 코드는 다음과같습니다.
 ```python
-pathlib.Path
+import os
+os.chdir('C:/Users/user/Desktop/SK_Shieldus/python_project')
 ```
