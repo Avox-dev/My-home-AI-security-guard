@@ -1,6 +1,0 @@
-- `cv2.waitKey(10)`을 `cv2.waitKey(1)`과 `if key == ord('s')`로 수정
-- 중간 처리 과정 추가(ex. Histogram Equalization)
-- 인공지능 모델을 학습시켜 적용
-- `cv2.namedWindow("Video", cv2.WINDOW_NORMAL)`로 변경
-- `self.record_start_time`와 `self.POST_RECORD_DURATION`을 사용하여 녹화 파일 분할
-- `try-except` 블록을 사용하여 예외处理 강화
