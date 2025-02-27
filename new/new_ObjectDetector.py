@@ -1,10 +1,1 @@
-```python
-    try:
-        object_count, annotated_image = self.detect_objects(image_path)
-        if annotated_image is not None:
-            return object_count
-    except Exception as e:
-        print(f"Error during object detection: {e}")
-        return 0
-
-```
+❌ 요청 오류: 429 Client Error: Too Many Requests for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAQQvlZHtg-uIP4mKxcOPcbTviSKDFlF_g

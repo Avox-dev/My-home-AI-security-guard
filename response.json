@@ -1,18 +1,18 @@
 [
     {
-        "file": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/PoseLandmarkerModule.py",
-        "llm_response": "```json\n{\n  \"run_started\": \"2025-02-26T05:52:41.691179\",\n  \"test_results\": \"No issues identified.\",\n  \"code_scanned\": {\n    \"total_lines_of_code\": 196,\n    \"total_lines_skipped_nosec\": 0,\n    \"total_potential_issues_skipped\": 0\n  },\n  \"run_metrics\": {\n    \"total_issues\": {\n      \"undefined\": 0,\n      \"low\": 0,\n      \"medium\": 0,\n      \"high\": 0\n    },\n    \"total_issues_by_confidence\": {\n      \"undefined\": 0,\n      \"low\": 0,\n      \"medium\": 0,\n      \"high\": 0\n    }\n  },\n  \"files_skipped\": 0\n}\n```\n"
-    },
-    {
-        "file": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/ObjectDetector.py",
-        "llm_response": "```json\n{\n  \"run_started\": \"2025-02-26 05:52:46.476742\",\n  \"test_results\": [\n    {\n      \"issue\": \"B614:pytorch_load\",\n      \"severity\": \"Medium\",\n      \"confidence\": \"High\",\n      \"cwe\": \"CWE-502\",\n      \"cwe_url\": \"https://cwe.mitre.org/data/definitions/502.html\",\n      \"more_info\": \"https://bandit.readthedocs.io/en/1.8.3/plugins/b614_pytorch_load.html\",\n      \"location\": {\n        \"file\": \"/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/ObjectDetector.py\",\n        \"line\": 17,\n        \"column\": 21\n      },\n      \"code_snippet\": [\n        \"        # 모델 로드\",\n        \"        self.model = torch.hub.load(model_path, 'custom', path=weights_path, source='local', force_reload=True)\",\n        \"        self.model.eval()\"\n      ]\n    }\n  ],\n  \"code_scanned\": {\n    \"total_lines\": 50,\n    \"total_lines_skipped\": 0,\n    \"total_potential_issues_skipped\": 0\n  },\n  \"run_metrics\": {\n    \"total_issues_by_severity\": {\n      \"Undefined\": 0,\n      \"Low\": 0,\n      \"Medium\": 1,\n      \"High\": 0\n    },\n    \"total_issues_by_confidence\": {\n      \"Undefined\": 0,\n      \"Low\": 0,\n      \"Medium\": 0,\n      \"High\": 1\n    }\n  },\n  \"files_skipped\": 0\n}\n```\n"
-    },
-    {
         "file": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/save_video.py",
-        "llm_response": "```json\n{\n  \"run_started\": \"2025-02-26T05:52:50.592110\",\n  \"test_results\": \"No issues identified.\",\n  \"code_scanned\": {\n    \"total_lines_of_code\": 181,\n    \"total_lines_skipped_nosec\": 0,\n    \"total_potential_issues_skipped\": 0\n  },\n  \"run_metrics\": {\n    \"total_issues_by_severity\": {\n      \"Undefined\": 0,\n      \"Low\": 0,\n      \"Medium\": 0,\n      \"High\": 0\n    },\n    \"total_issues_by_confidence\": {\n      \"Undefined\": 0,\n      \"Low\": 0,\n      \"Medium\": 0,\n      \"High\": 0\n    }\n  },\n  \"files_skipped\": 0\n}\n```\n"
+        "llm_response": "❌ 요청 오류: 429 Client Error: Too Many Requests for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAQQvlZHtg-uIP4mKxcOPcbTviSKDFlF_g"
     },
     {
         "file": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/app.py",
-        "llm_response": "```json\n{\n  \"runStarted\": \"2025-02-26T05:52:57.971078\",\n  \"testResults\": \"No issues identified.\",\n  \"codeScanned\": {\n    \"totalLinesOfCode\": 45,\n    \"totalLinesSkipped\": 0,\n    \"totalPotentialIssuesSkipped\": 0\n  },\n  \"runMetrics\": {\n    \"totalIssuesBySeverity\": {\n      \"Undefined\": 0,\n      \"Low\": 0,\n      \"Medium\": 0,\n      \"High\": 0\n    },\n    \"totalIssuesByConfidence\": {\n      \"Undefined\": 0,\n      \"Low\": 0,\n      \"Medium\": 0,\n      \"High\": 0\n    }\n  },\n  \"filesSkipped\": 0\n}\n```\n"
+        "llm_response": "❌ 요청 오류: 429 Client Error: Too Many Requests for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAQQvlZHtg-uIP4mKxcOPcbTviSKDFlF_g"
+    },
+    {
+        "file": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/PoseLandmarkerModule.py",
+        "llm_response": "❌ 요청 오류: 429 Client Error: Too Many Requests for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAQQvlZHtg-uIP4mKxcOPcbTviSKDFlF_g"
+    },
+    {
+        "file": "/home/runner/work/My-home-AI-security-guard/My-home-AI-security-guard/ObjectDetector.py",
+        "llm_response": "❌ 요청 오류: 429 Client Error: Too Many Requests for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyAQQvlZHtg-uIP4mKxcOPcbTviSKDFlF_g"
     }
 ]
